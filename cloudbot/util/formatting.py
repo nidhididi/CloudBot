@@ -75,6 +75,7 @@ class HTMLTextExtractor(HTMLParser):
     """
     Takes HTML and provides cleaned and stripped text.
     """
+
     def __init__(self):
         HTMLParser.__init__(self)
         self.result = []
@@ -210,7 +211,6 @@ def dict_format(args, formats):
         return max(matches.items(), key=lambda x: (x[1], len(x[0])))[0]
     except Exception:
         return None
-
 
 # ALL CODE BELOW THIS LINE IS COVERED BY THE FOLLOWING AGREEMENT:
 
