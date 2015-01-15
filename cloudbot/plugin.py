@@ -458,13 +458,22 @@ class Hook:
 class OnStartHook(Hook):
     type = HookType.on_start
 
+    def __str__(self):
+        return "on_start {} from {}".format(self.function_name, self.plugin)
+
 
 class OnStopHook(Hook):
     type = HookType.on_stop
 
+    def __str__(self):
+        return "on_stop {} from {}".format(self.function_name, self.plugin)
+
 
 class SieveHook(Hook):
     type = HookType.sieve
+
+    def __str__(self):
+        return "sieve {} from {}".format(self.function_name, self.plugin)
 
 
 class EventHook(Hook):
@@ -481,6 +490,9 @@ class EventHook(Hook):
         self.types = decorator.triggers
 
         super().__init__(plugin, decorator)
+
+    def __str__(self):
+        return "event {} ({}) from {}".format(self.function_name, ",".join(str(t) for t in self.types), self.plugin)
 
 
 class RegexHook(Hook):
@@ -502,6 +514,9 @@ class RegexHook(Hook):
 
     def __repr__(self):
         return super().__repr__(triggers=", ".join(regex.pattern for regex in self.triggers))
+
+    def __str__(self):
+        return "regex {} from {}".format(self.function_name, self.plugin)
 
 
 class CommandHook(Hook):
@@ -531,6 +546,9 @@ class CommandHook(Hook):
     def __repr__(self):
         return super().__repr__(name=self.name, aliases=self.aliases[1:])
 
+    def __str__(self):
+        return "command {} from {}".format("/".join(self.aliases), self.plugin)
+
 
 class RawHook(Hook):
     """
@@ -552,6 +570,9 @@ class RawHook(Hook):
 
     def __repr__(self):
         return super().__repr__(triggers=self.triggers)
+
+    def __str__(self):
+        return "irc raw {} ({}) from {}".format(self.function_name, ",".join(self.triggers), self.plugin)
 
 
 _hook_classes = {
