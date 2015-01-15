@@ -56,7 +56,8 @@ def find_hooks(title, module):
     for name, func in module.__dict__.items():
         if hasattr(func, "cloudbot_hooks"):
             # if it has cloudbot hook
-            for hook_type, hook in func.cloudbot_hooks.items():
+            for hook in func.cloudbot_hooks:
+                hook_type = hook.type
                 hook_class = _hook_classes[hook_type]
                 hooks_dict[hook_type].append(hook_class(title, hook))
 
