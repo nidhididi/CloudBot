@@ -26,11 +26,26 @@ class HookType(enum.Enum):
     irc_raw = 7,
 
 
+def find_plugins(plugin_directories):
+    """
+    :type plugin_directories: collections.Iterable[str]
+    :rtype: collections.Iterable[str]
+    """
+    for directory_pattern in plugin_directories:
+        for directory in glob.iglob(directory_pattern):
+            logger.info("Loading plugins from {}".format(directory))
+            if not os.path.exists(os.path.join(directory, "__init__.py")):
+                with open(os.path.join(directory, "__init__.py"), 'w') as file:
+                    file.write('\n')  # create blank __init__.py file if none exists
+            for plugin in glob.iglob(os.path.join(directory, '*.py')):
+                yield plugin
+
+
 def find_hooks(title, module):
     """
     :type title: str
     :type module: object
-    :rtype: dict[HookType, list[Hook]]
+    :rtype: dict[HookType, list[Hook | CommandHook | RegexHook | EventHook | IrcRawHook]]
     """
     # set the loaded flag
     module._plugins_loaded = True
@@ -164,17 +179,17 @@ class PluginManager:
         self._hook_locks = {}
 
     @asyncio.coroutine
-    def load_all(self, plugin_dir):
+    def load_all(self, plugin_directories):
         """
         Load a plugin from each *.py file in the given directory.
 
         Won't load any plugins listed in "disabled_plugins".
 
-        :type plugin_dir: str
+        :type plugin_directories: collections.Iterable[str]
         """
-        path_list = glob.iglob(os.path.join(plugin_dir, '*.py'))
+        path_list = find_plugins(plugin_directories)
         # Load plugins asynchronously :O
-        yield from asyncio.gather(*[self.load_plugin(path) for path in path_list], loop=self.bot.loop)
+        yield from asyncio.gather(*(self.load_plugin(path) for path in path_list), loop=self.bot.loop)
 
     @asyncio.coroutine
     def load_plugin(self, path):
@@ -351,7 +366,8 @@ class PluginManager:
         :type hook: cloudbot.plugin.Hook | cloudbot.plugin.CommandHook
         :rtype: bool
         """
-        if hook.type != HookType.on_start:  # we don't need sieves on on_start or on_stop hooks.
+
+        if hook.type not in (HookType.on_start, HookType.on_stop):  # we don't need sieves on on_start or on_stop hooks.
             for sieve in self.bot.plugin_manager.sieves:
                 event = yield from self._sieve(sieve, event, hook)
                 if event is None:
@@ -376,6 +392,12 @@ class PluginManager:
 
         # Return the result
         return result
+
+    @asyncio.coroutine
+    def run_shutdown_hooks(self):
+        shutdown_event = Event(bot=self.bot)
+        tasks = (self.launch(hook, shutdown_event) for hook in self.shutdown_hooks)
+        yield from asyncio.gather(*tasks, loop=self.bot.loop)
 
 
 class Hook:
