@@ -1,7 +1,8 @@
 {
 	"templates": [
-		"{gives} {user} {qualifier} {adjective} {item}!{hashtag}",
-		"{gives} {user} {qualifier} {adjective} {item}!",
+		"{gives} {user} {qualifier} {adjective} {item}! {hashtag} {hashtag}",
+		"{gives} {user} {qualifier} {adjective} {item}! {hashtag}",
+		"{gives} {user} {qualifier} {adjective} {item}!"
 	],
 
 	"parts": {
@@ -13,7 +14,8 @@
 			"sends",
 			"pinky-promises",
 			"shows",
-			"hands"
+			"gifts"
+			
 		],
 
 		"qualifier": [
@@ -38,7 +40,6 @@
 			"bedazzled",
 			"delish",
 			"carbalicious",
-			"unsatisfying",
 			"gluten-free",
 			"Pinterest-worthy",
 			"Lauren Conrad-approved",
@@ -53,12 +54,15 @@
 			"framed Marilyn Monroe quote",
 			"boozy brunch",
 			"infinity scarf",
+			"chunky sweater",
+			"manicure with nail art"
 			"bowl of kale chips",
 			"glass of cheap bubbly",
+			"pair of oversized sunglasses",
 			"box of wine",
 			"North Face fleece",
-			"a pair of jeggings",
-			"ombré highlights",
+			"pair of jeggings",
+			"haircut and ombré highlights",
 			"cupcake",
 			"Cosmo in a Mason jar",
 			"Audrey Hepburn poster",
@@ -83,7 +87,17 @@
 			"#happy",
 			"#nofilter",
 			"#amazing",
-			"#grateful"
+			"#grateful",
+			"humblebrag",
+			"treatyoself",
+			"YOLO",
+			"youcantsitwithus",
+			"humpday",
+			"throwbackthursday",
+			"girlsnightout",
+			"besties",
+			"BFFs",
+			"goodtimes"
 		]
 	}
 }
