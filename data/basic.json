@@ -1,8 +1,8 @@
 {
 	"templates": [
-		"{gives} {user} {qualifier} {adjective} {item}!{hashtag}",
+		"{gives} {user} {qualifier} {adjective} {item}! {hashtag}",
 		"{gives} {user} {qualifier} {adjective} {item}!",
-		"{gives} {user} a {item}"
+	
 	],
 
 	"parts": {
@@ -14,7 +14,7 @@
 			"sends",
 			"pinky-promises",
 			"shows",
-			"hands"
+			"gifts"
 		],
 
 		"qualifier": [
@@ -22,9 +22,7 @@
 			"an amazingly",
 			"a basically",
 			"an orgasmically",
-			"an awfully",
-			"an adventurously",
-			"a disappointingly",
+			"an adventurously",,
 			"a super",
 			"a literally"
 		],
@@ -43,9 +41,7 @@
 			"bedazzled",
 			"delish",
 			"carbalicious",
-			"unsatisfying",
 			"gluten-free",
-			"—I can’t even—",
 			"Pinterest-worthy",
 			"Lauren Conrad-approved",
 			"FOMO-inducing"
@@ -60,13 +56,13 @@
 			"boozy brunch",
 			"infinity scarf",
 			"bowl of kale chips",
-			"Buzzfeed article",
 			"glass of cheap bubbly",
-			"bottle of 2 buck chuck",
+			"box of wine",
 			"North Face fleece",
-			"jeggings",
+			"pair of jeggings",
 			"new haircut",
 			"cupcake",
+			"Cosmo sex tip"
 			"Pinterest board",
 			"Cosmo in a Mason jar",
 			"Audrey Hepburn poster",
