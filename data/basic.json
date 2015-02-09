@@ -1,14 +1,8 @@
 {
 	"templates": [
-<<<<<<< HEAD
-		"{gives} {user} {qualifier} {adjective} {item}! {hashtag}",
-		"{gives} {user} {qualifier} {adjective} {item}!",
-	
-=======
 		"{gives} {user} {qualifier} {adjective} {item}! {hashtag} {hashtag}",
 		"{gives} {user} {qualifier} {adjective} {item}! {hashtag}",
 		"{gives} {user} {qualifier} {adjective} {item}!"
->>>>>>> 9d6396ab6c91987b2a1900b084169fcbec624e0f
 	],
 
 	"parts": {
@@ -21,26 +15,16 @@
 			"pinky-promises",
 			"shows",
 			"gifts"
-<<<<<<< HEAD
-=======
 			
->>>>>>> 9d6396ab6c91987b2a1900b084169fcbec624e0f
 		],
 
 		"qualifier": [
 			"a totes",
 			"an amazingly",
 			"a basically",
-<<<<<<< HEAD
-			"an orgasmically",
-			"an adventurously",,
-			"a super",
-			"a literally"
-=======
 			"an orgasmic,",
 			"a super",
 			"a totally"
->>>>>>> 9d6396ab6c91987b2a1900b084169fcbec624e0f
 		],
 
 		"adjective": [
@@ -74,22 +58,12 @@
 			"manicure with nail art"
 			"bowl of kale chips",
 			"glass of cheap bubbly",
-<<<<<<< HEAD
-			"box of wine",
-			"North Face fleece",
-			"pair of jeggings",
-			"new haircut",
-			"cupcake",
-			"Cosmo sex tip"
-			"Pinterest board",
-=======
 			"pair of oversized sunglasses",
 			"box of wine",
 			"North Face fleece",
 			"pair of jeggings",
 			"haircut and ombré highlights",
 			"cupcake",
->>>>>>> 9d6396ab6c91987b2a1900b084169fcbec624e0f
 			"Cosmo in a Mason jar",
 			"Audrey Hepburn poster",
 			"shameless selfie",
@@ -113,21 +87,17 @@
 			"#happy",
 			"#nofilter",
 			"#amazing",
-<<<<<<< HEAD
-			"#grateful"
-=======
 			"#grateful",
-			"humblebrag",
-			"treatyoself",
-			"YOLO",
-			"youcantsitwithus",
-			"humpday",
-			"throwbackthursday",
-			"girlsnightout",
-			"besties",
-			"BFFs",
-			"goodtimes"
->>>>>>> 9d6396ab6c91987b2a1900b084169fcbec624e0f
+			"#humblebrag",
+			"#treatyoself",
+			"#YOLO",
+			"#youcantsitwithus",
+			"#humpday",
+			"#throwbackthursday",
+			"#girlsnightout",
+			"#besties",
+			"#BFFs",
+			"#goodtimes"
 		]
 	}
 }
